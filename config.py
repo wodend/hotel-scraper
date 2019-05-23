@@ -9,7 +9,9 @@ CHECK_OUT = date(2019, 6, 2)
 HEADERS = {
     'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'\
             ' AppleWebKit/537.36 (KHTML, like Gecko)'\
-            ' Chrome/70.0.3538.77 Safari/537.36'
+            ' Chrome/70.0.3538.77 Safari/537.36',
+    'accept': '*/*',
+    'accept-language': 'en-US, en;q=0.5',
 }
 LOCATION = {
         'ny': 'New+York',
@@ -18,6 +20,6 @@ LOCATION = {
         'frankfurt': 'Frankfurt',
         'amster': 'Amsterdam',
         'bangal': 'Bangalore',
-        'singap': 'Singapore'
+        'singap': 'Singapore',
 }
 OUTPUT_FILE = 'data.csv'
