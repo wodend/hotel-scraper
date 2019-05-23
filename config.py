@@ -12,6 +12,8 @@ HEADERS = {
             ' Chrome/70.0.3538.77 Safari/537.36',
     'accept': '*/*',
     'accept-language': 'en-US, en;q=0.5',
+    'connection': 'keep-alive',
+    'x-requested-with': 'XMLHttpRequest',
 }
 LOCATION = {
         'ny': 'New+York',
