@@ -22,7 +22,6 @@ for code in config.LOCATION:
     booking_process.join()
     hotels_process.join()
     with open(config.OUTPUT_FILE, 'a') as fp:
-        print(f'writing {code}')
         writer = csv.writer(fp)
         while not queue.empty():
             row = queue.get()

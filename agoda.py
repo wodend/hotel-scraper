@@ -7,13 +7,14 @@ import config
 BASE_URL = "https://{0}.agoda.com/"
 DEFAULT_TIME = 'T00:00:00'
 LOCATION = {
-        'ny': 318,
-        'sf': 13801,
-        'london': 233,
-        'frankfurt': 15847,
-        'amster': 13868,
-        'bangal': 4923,
-        'singap': 4064
+    'ny': 318,
+    'sf': 13801,
+    'london': 233,
+    'frankfurt': 15847,
+    'amster': 13868,
+    'bangal': 4923,
+    'singap': 4064,
+    'toronto': 17052,
 }
 
 def search(location):

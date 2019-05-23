@@ -23,5 +23,6 @@ LOCATION = {
         'amster': 'Amsterdam',
         'bangal': 'Bangalore',
         'singap': 'Singapore',
+        'toronto': 'Toronto',
 }
 OUTPUT_FILE = 'data.csv'
