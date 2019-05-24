@@ -26,4 +26,4 @@ for code in config.LOCATION:
         while not queue.empty():
             row = queue.get()
             writer.writerow(row)
-        time.sleep(5)
+        time.sleep(10)

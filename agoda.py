@@ -1,6 +1,7 @@
 import queue
 import requests
 import sys
+import time
 
 import config
 
@@ -55,10 +56,11 @@ def parse_result(result):
     return hotel, price
 
 def scrape(queue, location_code):
+    utc = time.gmtime()
     results = search(LOCATION[location_code])
     for index, result in enumerate(results):
         hotel, price = parse_result(result)
-        queue.put(['agoda', location_code, index, hotel, price])
+        queue.put(['agoda', location_code, index, hotel, price, *utc[1:4]])
 
 def main(argv):
     que = queue.Queue()

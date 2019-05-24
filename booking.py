@@ -2,6 +2,7 @@ import queue
 import re
 import requests
 import sys
+import time
 from bs4 import BeautifulSoup
 
 import config
@@ -44,10 +45,11 @@ def parse_result(result):
     return hotel, price
 
 def scrape(queue, location_code):
+    utc = time.gmtime()
     results = search(config.LOCATION[location_code])
     for index, result in enumerate(results):
         hotel, price = parse_result(result)
-        queue.put(['booking', location_code, index, hotel, price])
+        queue.put(['booking', location_code, index, hotel, price, *utc[1:4]])
 
 def main(argv):
     que = queue.Queue()
