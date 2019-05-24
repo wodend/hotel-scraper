@@ -1,6 +1,7 @@
 import queue
 import re
 import requests
+import socket
 import sys
 import time
 from bs4 import BeautifulSoup
@@ -58,7 +59,8 @@ def scrape(queue, location_code):
     results = [x for i in range(PAGES) for x in search(location, i)]
     for index, result in enumerate(results):
         hotel, price = parse_result(result)
-        queue.put(['hotels', location_code, index, hotel, price, *utc[1:4]])
+        queue.put(['hotels', socket.gethostname(), location_code, index,
+            hotel, price, *utc[1:4]])
 
 def main(argv):
     que = queue.Queue()

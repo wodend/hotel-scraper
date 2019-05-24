@@ -1,5 +1,6 @@
 import queue
 import requests
+import socket
 import sys
 import time
 
@@ -8,13 +9,13 @@ import config
 BASE_URL = "https://{0}.agoda.com/"
 DEFAULT_TIME = 'T00:00:00'
 LOCATION = {
-    'ny': 318,
-    'sf': 13801,
+    'new-york': 318,
+    'san-francisco': 13801,
     'london': 233,
     'frankfurt': 15847,
-    'amster': 13868,
-    'bangal': 4923,
-    'singap': 4064,
+    'amsterdam': 13868,
+    'bangalore': 4923,
+    'singapore': 4064,
     'toronto': 17052,
 }
 
@@ -60,7 +61,8 @@ def scrape(queue, location_code):
     results = search(LOCATION[location_code])
     for index, result in enumerate(results):
         hotel, price = parse_result(result)
-        queue.put(['agoda', location_code, index, hotel, price, *utc[1:4]])
+        queue.put(['agoda', socket.gethostname(), location_code, index, hotel,
+            price, *utc[1:4]])
 
 def main(argv):
     que = queue.Queue()
