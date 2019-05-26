@@ -16,13 +16,13 @@ HEADERS = {
     'x-requested-with': 'XMLHttpRequest',
 }
 LOCATION = {
-        'san-francisco': 'San+Francisco',
-        'new-york': 'New+York',
-        'toronto': 'Toronto',
-        'london': 'London',
-        'amsterdam': 'Amsterdam',
-        'frankfurt': 'Frankfurt',
-        'bangalore': 'Bangalore',
-        'singapore': 'Singapore',
+        'sf': 'San+Francisco',
+        'ny': 'New+York',
+        'tor': 'Toronto',
+        'lon': 'London',
+        'ams': 'Amsterdam',
+        'frank': 'Frankfurt',
+        'ban': 'Bangalore',
+        'sin': 'Singapore',
 }
 OUTPUT_FILE = 'data.csv'

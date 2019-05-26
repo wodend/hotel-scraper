@@ -51,7 +51,7 @@ def scrape(queue, location_code):
     for index, result in enumerate(results):
         hotel, price = parse_result(result)
         queue.put(['booking', socket.gethostname(), location_code, index,
-            hotel, price, *utc[1:4]])
+            hotel, price, utc.tm_yday, utc.tm_hour])
 
 def main(argv):
     que = queue.Queue()
