@@ -61,7 +61,7 @@ def scrape(queue, location_code):
     results = search(LOCATION[location_code])
     for index, result in enumerate(results):
         hotel, price = parse_result(result)
-        queue.put(['agoda', socket.gethostname(), location_code, index, hotel,
+        queue.put(['ag', socket.gethostname(), location_code, index, hotel,
             price, utc.tm_yday, utc.tm_hour])
 
 def main(argv):
