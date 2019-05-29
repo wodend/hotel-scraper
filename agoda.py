@@ -13,7 +13,7 @@ LOCATION = {
     'sf': 13801,
     'lon': 233,
     'frank': 15847,
-    'ams': 13868,
+    'am': 13868,
     'ban': 4923,
     'sin': 4064,
     'tor': 17052,
@@ -53,7 +53,7 @@ def parse_result(result):
     if hotel_attr:
         hotel = hotel_attr
     if price_string:
-        price = int(price_string)
+        price = int(price_string.replace(',', ''))
     return hotel, price
 
 def scrape(queue, location_code):

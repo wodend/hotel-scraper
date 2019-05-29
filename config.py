@@ -20,7 +20,7 @@ LOCATION = {
         'ny': 'New+York',
         'tor': 'Toronto',
         'lon': 'London',
-        'ams': 'Amsterdam',
+        'am': 'Amsterdam',
         'frank': 'Frankfurt',
         'ban': 'Bangalore',
         'sin': 'Singapore',

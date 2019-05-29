@@ -42,7 +42,8 @@ def parse_result(result):
     if hotel_attr:
         hotel = int(hotel_attr)
     if price_tag:
-        price = re.search('\d+', price_tag.text).group(0)
+        price_group = re.search('[\d,]+', price_tag.text).group(0)
+        price = int(price_group.replace(',', ''))
     return hotel, price
 
 def scrape(queue, location_code):
