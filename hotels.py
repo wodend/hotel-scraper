@@ -7,6 +7,7 @@ import time
 from bs4 import BeautifulSoup
 
 import config
+import util
 
 BASE_URL = 'https://www.hotels.com/'
 PAGES = 3
@@ -54,18 +55,28 @@ def parse_result(result):
         price = int(price_group.replace(',', ''))
     return hotel, price
 
-def scrape(queue, location_code):
+def scrape(queue, location_code, rate):
     utc = time.gmtime()
     location = config.LOCATION[location_code]
+    location_curr = socket.gethostname()
     results = [x for i in range(PAGES) for x in search(location, i)]
     for index, result in enumerate(results):
-        hotel, price = parse_result(result)
-        queue.put(['hot', socket.gethostname(), location_code, index,
+        hotel, price_local = parse_result(result)
+        price = util.usd(price_local, config.CURRENCY[location_curr], rate)
+        queue.put(['hot', location_curr, location_code, index,
             hotel, price, utc.tm_yday, utc.tm_hour])
 
 def main(argv):
+    rate = {
+        'EUR': 1,
+        'USD': 1.116931,
+        'CAD': 1.506685,
+        'GBP': 0.882129,
+        'INR': 78.05954,
+        'SGD': 1.540751,
+    }
     que = queue.Queue()
-    scrape(que, argv[1])
+    scrape(que, argv[1], rate)
     while not que.empty():
         print(que.get())
 

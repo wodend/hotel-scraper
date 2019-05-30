@@ -15,6 +15,16 @@ HEADERS = {
     'connection': 'keep-alive',
     'x-requested-with': 'XMLHttpRequest',
 }
+CURRENCY = {
+        'sf': 'USD',
+        'ny': 'USD',
+        'tor': 'CAD',
+        'lon': 'GBP',
+        'am': 'EUR',
+        'frank': 'EUR',
+        'ban': 'INR',
+        'sin': 'SGD',
+}
 LOCATION = {
         'sf': 'San+Francisco',
         'ny': 'New+York',
