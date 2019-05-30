@@ -16,17 +16,8 @@ query = {
     'access_key': '00b557900a5055f07b5703afce9df099',
     'symbols': 'EUR,USD,CAD,GBP,INR,SGD',
 }
-#response = requests.get(url, params=query)
-#rate = response.json()['rates']
-# rates on 2019-05-28
-rate = {
-    'EUR': 1,
-    'USD': 1.116931,
-    'CAD': 1.506685,
-    'GBP': 0.882129,
-    'INR': 78.05954,
-    'SGD': 1.540751,
-}
+response = requests.get(url, params=query)
+rate = response.json()['rates']
 
 for code in config.LOCATION:
     agoda_process = Process(target=agoda.scrape, args=(queue, code, rate))
