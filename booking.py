@@ -55,7 +55,7 @@ def scrape(queue, location_code, rate):
         hotel, price_local = parse_result(result)
         price = util.usd(price_local, config.CURRENCY[location_curr], rate)
         queue.put(['book', location_curr, location_code, index,
-            hotel, price, utc.tm_yday, utc.tm_hour])
+            hotel, price_local, price, utc.tm_yday, utc.tm_hour])
 
 def main(argv):
     rate = {
